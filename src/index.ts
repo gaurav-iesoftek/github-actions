@@ -1,20 +1,22 @@
-import express from 'express'
+import express from 'express';
 import { Request, Response } from 'express';
 
 const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
 interface HelloResponse {
-	success: boolean;
-	message: string;
+  success: boolean;
+  message: string;
 }
 
-
+app.get('/', (req: Request, res: Response<HelloResponse>) => {
+  return res.status(200).json({ success: true, message: 'Welcome to lint' });
+});
 app.get('/hello', (req: Request, res: Response<HelloResponse>) => {
-	return res.status(200).json({ success: true, message: 'Hello World' });
+  return res.status(200).json({ success: true, message: 'Hello World' });
 });
 
 app.listen(8081, () => {
-	console.log('Server is running on port 8081')
-})
+  console.log('Server is running on port 8081');
+});
