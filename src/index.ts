@@ -18,5 +18,5 @@ app.get('/hello', (req: Request, res: Response<HelloResponse>) => {
 });
 
 app.listen(8081, () => {
-  console.log('Server is running on port 8081');
+  console.log('Server is running on port 8081, and Hello');
 });
